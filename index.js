@@ -6,6 +6,7 @@ class HTMLel {
         this.slides = document.getElementsByClassName("mySlides");
         this.dots = [...document.getElementsByClassName("dot")];
         this.arrow = [...document.querySelectorAll('.arrow')];
+        this.panel = [...document.querySelectorAll('.section-header')];
         
         this.arrow.forEach(arrow => {
             arrow.addEventListener('click', this.slide.bind(this, arrow))
@@ -15,13 +16,27 @@ class HTMLel {
             dot.addEventListener('click', this.currentSlide.bind(this, index + 1))
         });
 
+        this.panel.forEach((panel, index) => {
+            panel.addEventListener('click', (e) => this.accordeon.call(this, e))
+        });
+
+
+
         this.bar.addEventListener("click", this.toggleClass);
         setInterval(() => {
             this.bar.click();
             this.arrow[0].click();
-        },8000);
+        },300000);
        
         this.showSlides(this.slideIndex);        
+    }
+
+    accordeon(e) {
+        let el = e.target;
+        let sub = el.nextElementSibling;
+        el.classList.toggle('active');
+        sub.classList.toggle('accordDisplay');
+        
     }
 
     toggleClass () {
