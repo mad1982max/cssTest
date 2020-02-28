@@ -277,9 +277,9 @@ transition: 0.4s;
   
 }
 
-.spanLetter {
+/* .spanLetter {
   transition: font-size 0.5s;
-}
+} */
 
 .line {
   position: absolute;
@@ -303,4 +303,56 @@ transition: 0.4s;
 
 .lineText {
   position: relative;
+}
+
+/* -------------5---------- */
+
+.side {
+    height: 50%;
+    width: 30%;
+    background: rgb(227, 230, 229);
+    padding: 10px;
+    font-size: 20px;
+    border: 1px solid rgb(199, 196, 196);
+    border-bottom: none;
+    position: relative;
+    cursor: pointer;
+}
+
+.side:nth-last-child(2) {
+    border-bottom: 1px solid rgb(199, 196, 196);
+}
+
+
+
+.side:hover + .side-info {
+    display: inherit;
+    background: rgb(182, 197, 240);
+}
+
+
+.side:hover {
+    background: rgb(182, 197, 240);
+    border-right: none;
+}
+
+.side-info {
+    display: none;
+    position: absolute;
+    width: 70%;
+    height: 100%;
+    top: 0;
+    padding: 10px;
+    font-size: 20px;
+    left: 30%;
+    background: rgb(226, 145, 145);
+    border: 1px solid rgb(199, 196, 196);
+    border-left: none;
+
+}
+
+.side-wrapper {
+    background: rgb(227, 230, 229);
+    position: relative;
+    height: 200px;
 }

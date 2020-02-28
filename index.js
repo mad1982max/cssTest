@@ -46,15 +46,13 @@ class HTMLel {
     change() {
 
         this.spanLetter.forEach(span => {
-            span.setAttribute("style", `position:relative; z-index:${this.z}; color: white; font-size: ${this.fsize}`);
+            span.setAttribute("style", `position:relative; z-index:${this.z}; color: white;`);
             let char = span.textContent;
             if (char !== " ") {
                 this.z = this.z === 3 ? 1: 3;
-                this.fsize = this.fsize === "50px" ? "60px" : "50px"
-            }
-            
-        })
-        
+                this.fsize = this.fsize === "50px" ? "50px" : "60px"
+            }            
+        })        
     }
 
     splitText() {
@@ -68,7 +66,7 @@ class HTMLel {
             span.setAttribute("style", `position:relative; z-index:${this.z}; color: white; font-size: ${this.fsize}`)
             if (char !== " ") {
                 this.z = this.z === 3 ? 1: 3;
-                this.fsize = this.fsize === "50px" ? "60px" : "50px"
+                //this.fsize = this.fsize === "50px" ? "60px" : "50px"
             }
             
             this.lineText.append(span)
