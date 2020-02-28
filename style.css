@@ -2,7 +2,8 @@ body {
     margin: 0;
     padding: 0;
     counter-reset: section; 
-    box-sizing: border-box;   
+    box-sizing: border-box; 
+    background: rgb(253, 253, 253);  
 }
 
 body * {
@@ -10,15 +11,16 @@ body * {
 }
 
 .lesson {
-    margin: 25px 0 10px 0;
-    padding: 5px;
+    margin: 30px 0 10px 0;
+    padding: 10px;
     font-size: 1.5em;
     text-transform: uppercase;
     line-height: 30px;
+    background: rgb(253, 253, 253);
 }
 
 .lesson:first-child {
-    margin-top: 0;
+    margin-top: 10px;
 }
 
 .lesson:before {
@@ -35,12 +37,13 @@ body * {
 
 .lesson-body {
     padding: 20px 0;
-    background: #e6e6e6;
+    background: #f2f2f2;
+    min-height: 60px;
 }
 
 .main {
     max-width: 800px;
-    background: #f2f2f2;
+    /* background: #f2f2f2; */
     margin: 0 auto;
     height: 100vh;
 }
@@ -260,4 +263,44 @@ transition: 0.4s;
 
 .active:after {
     content: "-";;
+}
+
+/* --------5--------- */
+
+.contLine {
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  font-size: 50px;
+  position: relative;
+  background: rgb(241, 159, 159);
+  
+}
+
+.spanLetter {
+  transition: font-size 0.5s;
+}
+
+.line {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  background: #000;
+  z-index: 2;
+  top: calc(50% - 10px);
+  animation-name: up-down;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+  
+}
+
+@keyframes up-down {
+  from {background-color: rgb(102, 67, 67);transform: translateY(-35px);}
+  to {background-color: rgb(43, 43, 24); transform: translateY(35px);}
+}
+
+.lineText {
+  position: relative;
 }

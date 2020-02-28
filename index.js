@@ -7,6 +7,11 @@ class HTMLel {
         this.dots = [...document.getElementsByClassName("dot")];
         this.arrow = [...document.querySelectorAll('.arrow')];
         this.panel = [...document.querySelectorAll('.section-header')];
+        this.lineText = document.querySelector('.lineText');
+        this.line = document.querySelector('.line');
+        this.spanLetter; 
+        this.z = 1;
+        this.fSize = "50px";
         
         this.arrow.forEach(arrow => {
             arrow.addEventListener('click', this.slide.bind(this, arrow))
@@ -20,15 +25,51 @@ class HTMLel {
             panel.addEventListener('click', (e) => this.accordeon.call(this, e))
         });
 
-
-
         this.bar.addEventListener("click", this.toggleClass);
         setInterval(() => {
             this.bar.click();
             this.arrow[0].click();
-        },300000);
+        },5000);
        
-        this.showSlides(this.slideIndex);        
+        this.showSlides(this.slideIndex);
+        this.splitText();
+
+        setInterval(this.change.bind(this), 4000)
+
+    }
+
+    change() {
+
+        this.spanLetter.forEach(span => {
+            span.setAttribute("style", `position:relative; z-index:${this.z}; color: white; font-size: ${this.fsize}`);
+            let char = span.textContent;
+            if (char !== " ") {
+                this.z = this.z === 3 ? 1: 3;
+                this.fsize = this.fsize === "50px" ? "60px" : "50px"
+            }
+            
+        })
+        
+    }
+
+    splitText() {
+
+        let textArr = this.lineText.textContent.trim().split("");
+        this.lineText.innerHTML = "";
+        textArr.forEach((char,i) => {
+            let span = document.createElement('span');
+            span.className = "spanLetter";
+            span.innerText = char;
+            span.setAttribute("style", `position:relative; z-index:${this.z}; color: white; font-size: ${this.fsize}`)
+            if (char !== " ") {
+                this.z = this.z === 3 ? 1: 3;
+                this.fsize = this.fsize === "50px" ? "60px" : "50px"
+            }
+            
+            this.lineText.append(span)
+        })
+        this.spanLetter = [...document.querySelectorAll('.spanLetter')];
+        
     }
 
     accordeon(e) {
