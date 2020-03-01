@@ -4,6 +4,7 @@ body {
     counter-reset: section; 
     box-sizing: border-box; 
     background: rgb(253, 253, 253);  
+    transition: visibility 1s linear,opacity 1s linear;
 }
 
 body * {
@@ -355,4 +356,43 @@ transition: 0.4s;
     background: rgb(227, 230, 229);
     position: relative;
     height: 200px;
+}
+
+.pagelink, #navbar {
+  height: 100px;
+  font-size: 25px;
+  background: rgb(64, 43, 141);
+  line-height: 100px;
+  color: #f2f2f2;
+}
+
+a.footer:visited, .header a:visited {
+  color: #f2f2f2;
+}
+
+a.footer, .header a {
+  height: 100px;
+  font-size: 25px;
+  line-height: 100px;
+  padding: 10px;
+  position: relative;
+  text-decoration: none;
+}
+
+.ico {
+  font-size: 50px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+/* ------------------7-------------- */
+canvas {
+  border: 1px solid goldenrod;
+  
+}
+
+.canvas-wrapper {
+  margin: auto;
+  text-align: center;
 }
